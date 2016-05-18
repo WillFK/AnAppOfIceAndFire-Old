@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">An App Of Ice And Fire</string>
     <string name="title_activity_data_base">Data Base</string>
+    <string name="title_progress_sync">synchronizing</string>
+    <string name="txt_progress_sync">Winter is comming...</string>
     <string name="lbl_last_update_home">Last update: %s</string>
     <string name="act_activity_db">Data Base</string>
     <string name="act_erase_db">Erase</string>

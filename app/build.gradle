@@ -10,7 +10,9 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-        useJack true
+        jackOptions {
+            enabled true
+        }
     }
     buildTypes {
         release {
@@ -28,5 +30,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
     compile 'com.github.satyan:sugar:1.4'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.annimon:stream:1.0.9'
 
 }

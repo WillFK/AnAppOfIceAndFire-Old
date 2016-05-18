@@ -9,7 +9,7 @@ import com.orm.dsl.Table;
  * Created by will on 5/17/16.
  */
 @Table
-public class Meta {
+public class Meta extends AbstractModel {
 
     public long id;
     public long lastUpdate;
