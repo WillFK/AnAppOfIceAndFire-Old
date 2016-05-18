@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">An App Of Ice And Fire</string>
+    <string name="title_activity_data_base">Data Base</string>
+    <string name="lbl_last_update_home">Last update: %s</string>
+    <string name="act_activity_db">Data Base</string>
+    <string name="act_erase_db">Erase</string>
+    <string name="act_populate_rest_db">Populate (Server)</string>
+    <string name="act_populate_mock_db">Populate (Mocks)</string>
+    <string name="act_activity_display">Display Data</string>
 </resources>
