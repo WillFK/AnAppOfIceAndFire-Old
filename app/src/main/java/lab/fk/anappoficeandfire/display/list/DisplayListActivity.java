@@ -1,6 +1,5 @@
 package lab.fk.anappoficeandfire.display.list;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,26 +10,27 @@ import android.util.Log;
 
 import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
-import com.annimon.stream.function.Function;
 import com.annimon.stream.function.Predicate;
 import com.orm.SugarRecord;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import lab.fk.anappoficeandfire.R;
-import lab.fk.anappoficeandfire.display.DisplayActivity;
 import lab.fk.anappoficeandfire.display.FilterDisplayVO;
 import lab.fk.anappoficeandfire.model.AbstractModel;
-import lab.fk.anappoficeandfire.model.Book;
 import lab.fk.anappoficeandfire.utils.ViewUtils;
+import rx.Observable;
 import rx.Subscriber;
 
 @SuppressWarnings("unchecked")
 public class DisplayListActivity extends AppCompatActivity {
 
-    private List<? extends AbstractModel> dataSet;
+    private List<AbstractModel> dataSet;
     private FilterDisplayVO filterDisplayVO;
     private ProgressDialog progressDialog;
+    private DisplayListAdapter dataDisplayListAdapter;
 
     private FilterDisplayVO getFilterDisplayVO() {
         if (filterDisplayVO == null) {
@@ -45,6 +45,7 @@ public class DisplayListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_list);
         setTitle(getFilterDisplayVO().dataType.toString());
         new LoadDataTask().execute();
+        //loadDataRX();
     }
 
     @Override
@@ -59,9 +60,7 @@ public class DisplayListActivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog = ProgressDialog.show(DisplayListActivity.this,
-                    getString(R.string.txt_loading_data_display),
-                    getString(R.string.txt_waiting_display));
+            displayProgress();
         }
 
         @Override
@@ -87,6 +86,44 @@ public class DisplayListActivity extends AppCompatActivity {
         }
     }
 
+    private void displayProgress() {
+        progressDialog = ProgressDialog.show(DisplayListActivity.this,
+                getString(R.string.txt_loading_data_display),
+                getString(R.string.txt_waiting_display));
+    }
+
+    private void loadDataRX() {
+        final Iterator<? extends AbstractModel> itModel = SugarRecord.findAll(getFilterDisplayVO().dataType.getModelClass());
+        dataSet = new ArrayList<>();
+        setupList();
+        final Subscriber<AbstractModel> subs = new Subscriber<AbstractModel>() {
+
+            @Override
+            public void onCompleted() {
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e("AOIF", e.getMessage(), e);
+            }
+
+            @Override
+            public void onNext(AbstractModel abstractModel) {
+                dataSet.add(abstractModel);
+                dataDisplayListAdapter.notifyDataSetChanged();
+            }
+        };
+
+
+        Observable.create(new Observable.OnSubscribe<AbstractModel>() {
+            @Override
+            public void call(Subscriber<? super AbstractModel> subscriber) {
+                Stream.of(itModel).forEach(model -> subscriber.onNext(model));
+                subscriber.onCompleted();
+            }
+        }).subscribe(subs);
+    }
+
     private void loadData() {
 
         //AbstractModel model = SugarRecord.findAll(getFilterDisplayVO().dataType.getModelClass()).next();
@@ -110,6 +147,6 @@ public class DisplayListActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(llm);
 
-        recyclerView.setAdapter(new DisplayListAdapter(dataSet, getFilterDisplayVO().dataType));
+        recyclerView.setAdapter(dataDisplayListAdapter = new DisplayListAdapter(dataSet, getFilterDisplayVO().dataType));
     }
 }
