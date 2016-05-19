@@ -25,4 +25,6 @@
     <string name="lbl_item_region_display_list">Region</string>
     <string name="lbl_item_words_display_list">Words</string>
     <string name="lbl_item_played_by_display_list">Played by</string>
+    <string name="txt_loading_data_display">Loading data</string>
+    <string name="txt_waiting_display">Waiting...</string>
 </resources>

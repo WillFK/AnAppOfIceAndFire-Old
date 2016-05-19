@@ -19,7 +19,7 @@ public class Character extends AbstractModel {
     public Character() {
     }
 
-    public Character(Long id, String name, List<String> titles, List<String> aliases, List<String> playedBy) {
+    public Character(long id, String name, List<String> titles, List<String> aliases, List<String> playedBy) {
         this.id = id;
         this.name = name;
         this.titles = ArrayUtils.listToString(titles);

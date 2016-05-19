@@ -18,7 +18,7 @@ public class RawBook extends RawModel<Book>{
 
     public String url;
     public String name;
-    public Integer pages;
+    public Integer numberOfPages;
     public String released;
     public List<String> characters;
 
@@ -27,7 +27,7 @@ public class RawBook extends RawModel<Book>{
         return new Book(
                 RawModel.extractIdFromURL(url),
                 name,
-                pages,
+                numberOfPages,
                 parseDate(released),
                 DBHandler.getOrCreateList(Character.class,
                         Stream.of(characters)

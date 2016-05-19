@@ -6,6 +6,9 @@ import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
 import com.orm.SugarRecord;
 
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import lab.fk.anappoficeandfire.model.AbstractModel;
@@ -39,10 +42,57 @@ public class DBHandler {
     public static void populateWithMocks() {
         try {
             erase();
+            populateWithData(getBookMocks());
+            populateWithData(getHouseMocks());
+            populateWithData(getCharacterMocks());
             updateMeta();
         } catch (Exception e) {
             Log.e("MOCKS", e.getMessage(), e);
         }
+    }
+
+    private static List<Book> getBookMocks() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, 1996);
+        Date d1 = cal.getTime();
+        cal.set(Calendar.YEAR, 2000);
+        Date d2 = cal.getTime();
+        return Arrays.asList(
+                new Book(1, "[Mock] A Game of Thrones", 10, d1, null),
+                new Book(2, "[Mock] A Clash of Kings", 11, d2, null)
+                );
+    }
+
+    private static List<House> getHouseMocks() {
+        return Arrays.asList(
+                new House(1, "[Mock] House Stark of Winterfell", "The North", null, "Winter is Comming", null),
+                new House(2, "[Mock] House Lannister of Casterly Rock", "The Westerlands", null, "Hear me Roar", null)
+                );
+    }
+
+    private static List<Character> getCharacterMocks() {
+        return Arrays.asList(
+                new Character(1,
+                        "[Mock] Jon Snow",
+                        Arrays.asList("Lord Commander of the Night's Watch"),
+                        Arrays.asList("Lord Snow", "Ned Stark's Bastard"),
+                        Arrays.asList("Kit Harington")),
+                new Character(2,
+                        "[Mock] Eddard Stark",
+                        Arrays.asList("Lord of Winterfell", "Regent"),
+                        Arrays.asList("The Quiet Wolf", "Ned Stark"),
+                        Arrays.asList("Sean Bean")),
+                new Character(3,
+                        "[Mock] Jaime Lannister",
+                        Arrays.asList("Ser", "Commander of the Kingsguard"),
+                        Arrays.asList("The Kingslayer", "The Young Lion"),
+                        Arrays.asList("Nikolaj Coster-Waldau")),
+                new Character(4,
+                        "[Mock] Tyrion Lannister",
+                        Arrays.asList("Acting Hand of the King", "Master of Coin"),
+                        Arrays.asList("The Imp", "Halfman"),
+                        Arrays.asList("Peter Dinklage"))
+                );
     }
 
     public static void populateWithData(List<? extends AbstractModel> data) {
@@ -54,8 +104,8 @@ public class DBHandler {
         if (meta == null) {
             meta = new Meta();
             meta.id = 1;
-            meta.lastUpdate = System.currentTimeMillis();
         }
+        meta.lastUpdate = System.currentTimeMillis();
         SugarRecord.save(meta);
     }
 

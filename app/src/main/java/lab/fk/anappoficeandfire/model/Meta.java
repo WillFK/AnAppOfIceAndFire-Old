@@ -11,7 +11,6 @@ import com.orm.dsl.Table;
 @Table
 public class Meta extends AbstractModel {
 
-    public long id;
     public long lastUpdate;
 
     public Meta() {
