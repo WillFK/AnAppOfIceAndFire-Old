@@ -16,4 +16,13 @@ public class ViewUtils {
         return (T) root.findViewById(id);
     }
 
+    public static <T extends View> T getViewByTag(Activity root, Integer idContainer, Object tag) {
+        View view = root.findViewById(idContainer);
+        return getViewByTag(view, tag);
+    }
+
+    public static <T extends View> T getViewByTag(View view, Object tag) {
+        return (T) view.findViewWithTag(tag);
+    }
+
 }

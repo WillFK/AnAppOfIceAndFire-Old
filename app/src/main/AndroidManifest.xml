@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="lab.fk.anappoficeandfire">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".app.ApplicationOfIceAndFire"
         android:allowBackup="true"
@@ -20,5 +22,10 @@
             android:name=".database.DataBaseActivity"
             android:label="@string/title_activity_data_base"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".display.DisplayActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".display.list.DisplayListActivity"></activity>
     </application>
+
 </manifest>

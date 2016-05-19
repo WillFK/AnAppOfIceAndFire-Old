@@ -14,6 +14,7 @@ import com.orm.SugarRecord;
 import lab.fk.anappoficeandfire.R;
 import lab.fk.anappoficeandfire.client.IceAndFireClient;
 import lab.fk.anappoficeandfire.database.DataBaseActivity;
+import lab.fk.anappoficeandfire.display.DisplayActivity;
 import lab.fk.anappoficeandfire.model.Book;
 import lab.fk.anappoficeandfire.model.Character;
 import lab.fk.anappoficeandfire.model.House;
@@ -47,20 +48,17 @@ public class HomeActivity extends AppCompatActivity {
             goToDB();
         });
         Button btnDisplay = ViewUtils.getViewById(this, R.id.btn_display_home);
-        btnDisplay.setOnClickListener(x -> {
-            Toast.makeText(HomeActivity.this,
-                    String.format(
-                            "Houses: %d\nBooks: %d\nCharacters: %d\n",
-                            SugarRecord.count(House.class),
-                            SugarRecord.count(Book.class),
-                            SugarRecord.count(Character.class)),
-                    Toast.LENGTH_SHORT).show();
-        });
+        btnDisplay.setOnClickListener(x -> goToDisplay());
     }
 
     private void goToDB() {
         Intent intent = new Intent(this, DataBaseActivity.class);
         startActivityForResult(intent, 0);
+    }
+
+    private void goToDisplay() {
+        Intent intent = new Intent(this, DisplayActivity.class);
+        startActivity(intent);
     }
 
     @Override

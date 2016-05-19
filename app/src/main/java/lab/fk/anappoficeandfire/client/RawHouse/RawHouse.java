@@ -23,12 +23,15 @@ public class RawHouse extends RawModel<House>{
     public String name;
     public String currentLord;
     public String words;
+    public String region;
     public List<String> swornMembers = new ArrayList<>();
 
     @Override
     public House toModel() throws Exception{
         return new House(
                 RawModel.extractIdFromURL(url),
+                name,
+                region,
                 DBHandler.getOrCreate(Character.class, RawModel.extractIdFromURL(currentLord)),
                 words,
                 DBHandler.getOrCreateList(Character.class,

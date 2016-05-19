@@ -7,17 +7,21 @@ import java.util.List;
 @Table
 public class House extends AbstractModel {
 
+    public String name;
     public Character currentLord;
     public String words;
-    public List<Character> swornMembers;
+    public String region;
+   // public List<Character> swornMembers;
 
     public House() {
     }
 
-    public House(long id, Character currentLord, String words, List<Character> swornMembers) {
+    public House(long id, String name, String region, Character currentLord, String words, List<Character> swornMembers) {
         this.id = id;
+        this.name = name;
         this.currentLord = currentLord;
         this.words = words;
-        this.swornMembers = swornMembers;
+        this.region = region;
+        //this.swornMembers = swornMembers;
     }
 }

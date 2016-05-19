@@ -11,7 +11,7 @@ public class Book extends AbstractModel{
     public String name;
     public Integer pages;
     public Date released;
-    public List<Character> characters;
+    //public List<Character> characters;
 
     public Book() {
     }
@@ -21,6 +21,6 @@ public class Book extends AbstractModel{
         this.name = name;
         this.pages = pages;
         this.released = released;
-        this.characters = characters;
+        //this.characters = characters;
     }
 }

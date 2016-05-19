@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:background="@color/colorPrimaryDark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Jon Snow"
+            android:textStyle="bold"
+            android:layout_marginStart="5dp"
+            android:textSize="15sp"
+            android:tag="name"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="The one who knows nothing"
+            android:layout_marginStart="15dp"
+            android:tag="description"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:tag="aliases"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_item_alias_display_list"/>
+        <TextView
+            tools:text="Bastard; Knows Nothing; Jesus;"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="controller"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:tag="titles"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_item_titles_display_list"/>
+        <TextView
+            tools:text="Lord Commander of the Wall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="controller"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:tag="released"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_item_released_display_list"/>
+        <TextView
+            tools:text="1993-01-01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="controller"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:tag="region"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_item_region_display_list"/>
+        <TextView
+            tools:text="The Wall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="controller"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:tag="words"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_item_words_display_list"/>
+        <TextView
+            tools:text="And now my watch begins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="controller"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:tag="playedBy"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_item_played_by_display_list"/>
+        <TextView
+            tools:text="kit Harington"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="controller"/>
+    </LinearLayout>
+</LinearLayout>

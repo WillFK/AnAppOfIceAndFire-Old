@@ -2,6 +2,7 @@
     <string name="app_name">An App Of Ice And Fire</string>
     <string name="title_activity_data_base">Data Base</string>
     <string name="title_progress_sync">synchronizing</string>
+    <string name="title_filters_display">Filters</string>
     <string name="txt_progress_sync">Winter is comming...</string>
     <string name="lbl_last_update_home">Last update: %s</string>
     <string name="act_activity_db">Data Base</string>
@@ -9,4 +10,19 @@
     <string name="act_populate_rest_db">Populate (Server)</string>
     <string name="act_populate_mock_db">Populate (Mocks)</string>
     <string name="act_activity_display">Display Data</string>
+    <string name="lbl_filter_data_type_display">Data type:</string>
+    <string name="lbl_filter_name_display">Name:</string>
+    <string name="lbl_filter_release_display">Release date:</string>
+    <string name="lbl_filter_title_display">Title:</string>
+    <string name="lbl_filter_alias_display">Alias:</string>
+    <string name="lbl_filter_words_display">Words:</string>
+    <string name="lbl_filter_region_display">Region:</string>
+    <string name="btn_query_data_display">Query Data</string>
+    <string name="btn_choose_date_filter_display">Choose date</string>
+    <string name="lbl_item_alias_display_list">Aliases:</string>
+    <string name="lbl_item_titles_display_list">Titles:</string>
+    <string name="lbl_item_released_display_list">Release date</string>
+    <string name="lbl_item_region_display_list">Region</string>
+    <string name="lbl_item_words_display_list">Words</string>
+    <string name="lbl_item_played_by_display_list">Played by</string>
 </resources>
